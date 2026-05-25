@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "translator": "Translator",
+    "history": "History",
+    "export": "Export to Anki",
+    "settings": "Settings"
+  },
+  "settings": {
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "language": "Language"
+  },
+  "input": {
+    "title": "Input Words",
+    "placeholder": "Enter a word (e.g. apple)",
+    "valid": "Word exists",
+    "invalid": "Word does not exist",
+    "delete_row": "Delete this row",
+    "invalid_error": "The following words do not exist in the dictionary: {words}. Please fix them."
+  },
+  "result": {
+    "loading": "Loading...",
+    "empty": "No results yet",
+    "delete_card": "Delete card",
+    "delete_pos": "Delete part of speech",
+    "delete_def": "Delete definition",
+    "delete_ex": "Delete example",
+    "explanation": "Explanation:",
+    "translation": "Translation:",
+    "play_uk": "Play UK audio",
+    "play_us": "Play US audio",
+    "submit": "Translate"
+  },
+  "export": {
+    "title": "Anki Export Management",
+    "connected": "AnkiConnect Connected",
+    "disconnected": "AnkiConnect Disconnected",
+    "refresh": "Refresh",
+    "deck": "Target Deck",
+    "deck_placeholder": "Select a deck",
+    "model": "Card Model",
+    "model_placeholder": "Select a model",
+    "create_models": "Create default Anki models",
+    "model_warning": "We detected that you haven't imported the 'Anki Card Maker' models (Type1 / Type2). Please click the button above to create them for beautiful layouts.",
+    "queue_title": "Export Queue",
+    "batch_export": "Batch Export All",
+    "queue_empty": "There are no words to export. Please select words from the 'Translator' or 'History' first.",
+    "export_btn": "Export to Anki",
+    "select_warning": "Please select a deck and a model first",
+    "export_success": "Successfully exported: {word}",
+    "export_fail": "Export failed: {error}",
+    "batch_success": "Successfully exported {count} words!",
+    "batch_warning": "Batch export complete: {success} succeeded, {fail} failed"
+  },
+  "history": {
+    "clear": "Clear History"
+  }
+}

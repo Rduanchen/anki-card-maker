@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "translator": "翻譯工具",
+    "history": "歷史紀錄",
+    "export": "Anki 匯出",
+    "settings": "設定"
+  },
+  "settings": {
+    "theme": "佈景主題",
+    "light": "亮色",
+    "dark": "暗色",
+    "language": "語言"
+  },
+  "input": {
+    "title": "輸入單字",
+    "placeholder": "請輸入單字 (e.g. apple)",
+    "valid": "單字存在",
+    "invalid": "單字不存在",
+    "delete_row": "刪除此列",
+    "invalid_error": "單字不存在於字典中：{words}，請修正。"
+  },
+  "result": {
+    "loading": "載入中...",
+    "empty": "暫無查詢結果",
+    "delete_card": "刪除卡片",
+    "delete_pos": "刪除詞性",
+    "delete_def": "刪除解釋",
+    "delete_ex": "刪除例句",
+    "explanation": "解釋:",
+    "translation": "翻譯:",
+    "play_uk": "播放英式發音",
+    "play_us": "播放美式發音",
+    "submit": "查詢翻譯"
+  },
+  "export": {
+    "title": "Anki 匯出管理",
+    "connected": "AnkiConnect 已連線",
+    "disconnected": "AnkiConnect 未連線",
+    "refresh": "重新整理",
+    "deck": "目標牌組",
+    "deck_placeholder": "選擇牌組",
+    "model": "卡片模板",
+    "model_placeholder": "選擇模板",
+    "create_models": "一鍵建立 Anki 預設模板",
+    "model_warning": "系統偵測到您尚未匯入「Anki Card Maker」專用模板 (Type1 / Type2)。請點擊上方按鈕建立，才能使用精美排版。",
+    "queue_title": "待匯出名單",
+    "batch_export": "批次匯出全部",
+    "queue_empty": "目前沒有待匯出的單字，請先至「翻譯工具」或「歷史紀錄」選擇要匯出的單字。",
+    "export_btn": "匯出至 Anki",
+    "select_warning": "請先選擇牌組與模板",
+    "export_success": "成功匯出單字：{word}",
+    "export_fail": "匯出失敗：{error}",
+    "batch_success": "成功批次匯出 {count} 個單字！",
+    "batch_warning": "批次匯出完成：成功 {success}，失敗 {fail}"
+  },
+  "history": {
+    "clear": "清空紀錄"
+  }
+}
