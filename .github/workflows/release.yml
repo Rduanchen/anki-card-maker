@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     strategy:
@@ -28,8 +31,9 @@ jobs:
         run: npm run build
 
       - name: Build and Package
-        run: npx electron-builder --publish never
+        run: npx electron-builder --publish always
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Upload artifacts
