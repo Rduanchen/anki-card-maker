@@ -1,6 +1,6 @@
 {
   "name": "anki-card-maker",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "This is an app that translate english to traditional chinese and export to anki",
   "main": "./out/main/index.js",
   "author": "Rduanchen",
