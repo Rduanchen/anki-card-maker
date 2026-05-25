@@ -1,4 +1,5 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
+import { autoUpdater } from 'electron-updater'
 import { join } from 'path'
 import { initDictionaryController } from './dictionary/controller/dictionary.controller.js'
 import { initAnkiController } from './anki/controller/anki.controller.js'
@@ -53,7 +54,48 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
-  
+  ipcMain.handle('app:getVersion', () => app.getVersion())
+
+  // Setup auto updater
+  autoUpdater.autoDownload = false
+  if (!is.dev) {
+    autoUpdater.checkForUpdates()
+  }
+
+  autoUpdater.on('update-available', (info) => {
+    dialog
+      .showMessageBox({
+        type: 'info',
+        title: '發現新版本',
+        message: `發現新版本 ${info.version}，是否要現在下載並安裝？`,
+        buttons: ['是 (Yes)', '否 (No)']
+      })
+      .then((result) => {
+        if (result.response === 0) {
+          autoUpdater.downloadUpdate()
+        }
+      })
+  })
+
+  autoUpdater.on('update-downloaded', () => {
+    dialog
+      .showMessageBox({
+        type: 'info',
+        title: '更新已下載',
+        message: '更新已下載完畢，將在重新啟動後安裝，是否現在重新啟動？',
+        buttons: ['重新啟動 (Restart)', '稍後 (Later)']
+      })
+      .then((result) => {
+        if (result.response === 0) {
+          autoUpdater.quitAndInstall()
+        }
+      })
+  })
+
+  autoUpdater.on('error', (err) => {
+    console.error('Auto update error:', err)
+  })
+
   initDictionaryController()
   initAnkiController()
 

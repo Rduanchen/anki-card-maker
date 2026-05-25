@@ -4,6 +4,7 @@
   "description": "This is an app that translate english to traditional chinese and export to anki",
   "main": "./out/main/index.js",
   "author": "Rduanchen",
+  "repository": "https://github.com/Rduanchen/anki-card-maker",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",

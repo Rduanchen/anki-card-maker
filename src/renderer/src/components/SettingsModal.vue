@@ -79,6 +79,7 @@
       </n-form>
       <template #footer>
         <div class="modal-footer">
+          <div class="app-version" v-if="appVersion">Version: {{ appVersion }}</div>
           <n-button type="primary" size="large" @click="showModal = false">完成 (Done)</n-button>
         </div>
       </template>
@@ -87,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import {
   NModal,
   NCard,
@@ -112,6 +113,16 @@ const emit = defineEmits<{
 const showModal = computed({
   get: () => props.show,
   set: (val) => emit('update:show', val)
+})
+
+const appVersion = ref('')
+
+onMounted(async () => {
+  // @ts-ignore
+  if (window.api && window.api.app) {
+    // @ts-ignore
+    appVersion.value = await window.api.app.getVersion()
+  }
 })
 
 const sourceOptions = [
@@ -152,8 +163,14 @@ const sourceOptions = [
 
 .modal-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 12px;
+}
+
+.app-version {
+  font-size: 13px;
+  color: #888;
 }
 
 /* Custom scrollbar for webkit browsers */

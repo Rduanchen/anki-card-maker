@@ -3,6 +3,9 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
+  app: {
+    getVersion: () => ipcRenderer.invoke('app:getVersion')
+  },
   dictionary: {
     getDictionaries: (words: string[], config?: any) => ipcRenderer.invoke('dictionary:getDictionaries', words, config),
     autocomplete: (word: string) => ipcRenderer.invoke('dictionary:autocomplete', word)
