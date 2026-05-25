@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
       matrix:
         os: [macos-latest, windows-latest]
@@ -32,15 +32,13 @@ jobs:
       - name: Build and Release for Windows
         if: matrix.os == 'windows-latest'
         run: |
-          npm run build
-          npx electron-builder --win -p always
+          npm run build:win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Release for macOS
         if: matrix.os == 'macos-latest'
         run: |
-          npm run build
-          npx electron-builder --mac -p always
+          npm run build:mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
