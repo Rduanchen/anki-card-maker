@@ -6,39 +6,31 @@ on:
       - 'v*' # Trigger the workflow when a tag starting with "v" is pushed, e.g., v1.0.0
 
 jobs:
-  release:
-    runs-on: ${{ matrix.os }}
-
+  build:
     strategy:
       matrix:
         os: [macos-latest, windows-latest]
 
-    permissions:
-      contents: write # Required for creating GitHub Releases
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build and Release for Windows
-        if: matrix.os == 'windows-latest'
-        run: |
-          npm run build:win
+      - name: Build
+        run: npx electron-builder --publish never
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
-      - name: Build and Release for macOS
-        if: matrix.os == 'macos-latest'
-        run: |
-          npm run build:mac
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.os }}
+          path: dist/
