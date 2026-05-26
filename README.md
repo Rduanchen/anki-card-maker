@@ -42,7 +42,7 @@
 
 ---
 
-## 🛠️ 技術棧 (Technology Stack)
+## 技術棧 (Technology Stack)
 
 * **核心框架**：Electron + Vite + Vue 3 (Composition API, `<script setup>`)
 * **程式語言**：TypeScript
@@ -53,9 +53,9 @@
 
 ---
 
-## 🚀 專案開發與建置 (Project Setup & Run)
+## 專案開發與建置 (Project Setup & Run)
 
-### 📋 事前準備
+### 事前準備
 
 1. 安裝 [Node.js](https://nodejs.org/) (建議 v18 以上)。
 2. 若要使用匯出功能，請確保您的電腦已啟動 **Anki** 並安裝了 **[AnkiConnect](https://ankiweb.net/shared/info/2055492159)** 插件。
@@ -95,7 +95,7 @@ npm run build:linux
 
 ---
 
-## 📁 專案結構 (Directory Structure)
+## 專案結構 (Directory Structure)
 
 ```text
 ├── src/
@@ -118,6 +118,6 @@ npm run build:linux
 
 ---
 
-## 📝 授權條款 (License)
+## 授權條款 (License)
 
 本專案採用 **MIT License** 授權。
